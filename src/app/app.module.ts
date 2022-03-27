@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxsModule } from '@ngxs/store';
+import { environment } from '../environments/environment';
+import { ItemState } from './modules/item/item.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxsModule.forRoot([ItemState], {
+      developmentMode: !environment.production,
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
