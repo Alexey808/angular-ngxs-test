@@ -1,29 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemComponent } from './item.component';
+import { ItemsComponent } from './items.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
-import { ItemState } from './item.state';
+import { ItemsState } from './items.state';
+import { environment } from '../../../environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
     path: '',
-    component: ItemComponent,
+    component: ItemsComponent,
   }
 ]
 
 @NgModule({
   declarations: [
-    ItemComponent,
+    ItemsComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgxsModule.forFeature([ItemState]),
+    NgxsModule.forFeature([ItemsState]),
+    ReactiveFormsModule,
   ],
-  exports: [
-    ItemComponent,
-  ]
+   exports: [
+     ItemsComponent,
+   ]
 })
-export class ItemModule { }
+export class ItemsModule { }

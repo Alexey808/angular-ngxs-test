@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxsModule } from '@ngxs/store';
 import { environment } from '../environments/environment';
-import { ItemState } from './modules/item/item.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
@@ -15,7 +14,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxsModule.forRoot([ItemState], {
+    NgxsModule.forRoot([], {
       developmentMode: !environment.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot()

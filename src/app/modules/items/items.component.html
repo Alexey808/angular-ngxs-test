@@ -1,0 +1,18 @@
+<h3>items works!</h3>
+
+<div [formGroup]="form">
+  <input type="text" [formControlName]="itemFields.name">
+  <input type="checkbox" [formControlName]="itemFields.bool">
+  <button (click)="changeItem()">{{ selectedItemId ? 'Save' : 'Add' }}</button>
+</div>
+<div class="container">
+  <div *ngFor="let item of items$ | async">
+    {{item.name}}
+    <button (click)="editItem(item.id)">Edit</button>
+    <button (click)="deleteItem(item.id)">X</button>
+  </div>
+
+</div>
+
+<br>
+<button (click)="checkZeroItem()">check zero item</button>
